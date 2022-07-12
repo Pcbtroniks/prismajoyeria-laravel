@@ -233,7 +233,7 @@ return [
         // Sidebar items:
         [
             'text'        => 'Hero Gallery',
-            'route'         => 'home',
+            'route'         => 'admin.home',
             'icon'        => 'fas fa-solid fa-images',
             'label_color' => 'success',
         ],

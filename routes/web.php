@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+// Front Web Routes
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Authentication middleware
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Admin Panel ROutes
+Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
