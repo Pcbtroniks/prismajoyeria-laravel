@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 // Front Web Routes
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Authentication middleware
 Auth::routes();
 
-// Admin Panel ROutes
-Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+// Admin Panel Routes
+Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
