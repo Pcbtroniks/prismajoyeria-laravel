@@ -31,3 +31,7 @@ Auth::routes();
 
 // Admin Panel Routes
 Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+
+Route::post('/save-image', [App\Http\Controllers\Admin\ImageController::class, 'save'])->name('admin.image.save');
+
+Route::get('/delete-image/{image_id}', [App\Http\Controllers\Admin\ImageController::class, 'delete'])->name('admin.image.delete');

@@ -7,6 +7,25 @@
 @stop
 
 @section('content')
+
+@if (session()->has('success'))
+    
+<div id="alert-success-container" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session()->get('success')}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+@if ($errors->any())
+<div id="alert-error-container" class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ implode('', $errors->all(':message')) }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+@endif
     <div class="card">
         <div class="card-body">
             <h2 class="card-title">Agregar una nueva imagen</h2>
@@ -16,16 +35,18 @@
             <div class="row mb-5">
 
                 <div class="col-6">
-                    <form action="#" class="mb-4">
+                    <form method="POST" action="{{ route('admin.image.save') }}" class="mb-4" enctype="multipart/form-data">
+                        @csrf
                         <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="imageSrc_1">
-                            <label class="custom-file-label" for="customFileLangHTML" data-browse="Elegir">Seleccionar Archivo</label>
+                            <input type="file" class="custom-file-input" id="image" name="image">
+                            <label class="custom-file-label" for="image" data-browse="Elegir">Seleccionar Archivo</label>
+                            {{-- <span class="text-small small text-muted">De Click o Arrastre una imagen aqui</span> --}}
+                        </div>
+
+                        <div class="mt-5">
+                            <button id="addNewImageBtn" class="btn btn-primary disabled">Añadir Nueva Imagen</button>
                         </div>
                     </form>
-
-                    <div>
-                        <button id="addNewImageBtn" type="button" class="btn btn-primary disabled">Añadir Nueva Imagen</button>
-                    </div>
                 </div>
 
                 <div class="col-6 d-none" id="image-preview-container">
@@ -45,31 +66,16 @@
             </div>
 
             <div class="row">
-                <div class="col-md-4 mb-2 px-3 banner-image">
-                    <img class="rounded img-fluid" src="{{asset('assets/images/hero/hero-nuevo1.jpg')}}" alt="imagen">
-                    <a href="#">
-                        <span class="erase-img" title="Eliminar imagen">&times;</span>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-2 px-3 banner-image">
-                    <img class="rounded img-fluid" src="{{asset('assets/images/hero/hero-nuevo1.jpg')}}" alt="imagen">
-                    <a href="#">
-                        <span class="erase-img" title="Eliminar imagen">&times;</span>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-2 px-3 banner-image">
-                    <img class="rounded img-fluid" src="{{asset('assets/images/hero/hero-nuevo1.jpg')}}" alt="imagen">
-                    <a href="#">
-                        <span class="erase-img" title="Eliminar imagen">&times;</span>
-                    </a>
-                </div>
-                <div class="col-md-4 mb-2 px-3 banner-image">
-                    <img class="rounded img-fluid" src="{{asset('assets/images/hero/hero-nuevo1.jpg')}}" alt="imagen">
-                    <a href="#">
-                        <span class="erase-img" title="Eliminar imagen">&times;</span>
-                    </a>
-                </div>
+                @foreach ($images as $image)
+            
+                    <div class="col-md-4 mb-2 px-3 banner-image">
+                        <img class="rounded img-fluid" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
+                        <a href="{{ route('admin.image.delete' , ['image_id'=>$image->id]) }}">
+                            <span class="erase-img" title="Eliminar imagen">&times;</span>
+                        </a>
+                    </div>
 
+                @endforeach
             </div>
         </div>
     </div>
@@ -110,11 +116,16 @@
 @section('js')
     <script> 
 
+    // Autoclose Alert
+    setTimeout(() => {
+        $('#alert-success-container').alert('close')
+    }, 3000);
+
     
     const imagePreviewContainer = document.getElementById('image-preview-container');
     // Hero Preview Image
-    document.getElementById('imageSrc_1').addEventListener('change', function(){
-        loadPreviewImage('imageSrc_1','imageHolder');
+    document.getElementById('image').addEventListener('change', function(){
+        loadPreviewImage('image','imageHolder');
         imagePreviewContainer.classList.remove('d-none');
         document.getElementById('addNewImageBtn').classList.remove('disabled');
     })

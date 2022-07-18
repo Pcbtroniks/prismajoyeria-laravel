@@ -7,45 +7,22 @@
         <div class="response-product product-list-owl owl-slick equal-container better-height"
              data-slick="{&quot;arrows&quot;:false,&quot;slidesMargin&quot;:0,&quot;dots&quot;:true,&quot;infinite&quot;:false,&quot;speed&quot;:300,&quot;slidesToShow&quot;:1,&quot;rows&quot;:1}"
              data-responsive="[{&quot;breakpoint&quot;:480,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesMargin&quot;:&quot;0&quot;}},{&quot;breakpoint&quot;:768,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesMargin&quot;:&quot;0&quot;}},{&quot;breakpoint&quot;:992,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesMargin&quot;:&quot;0&quot;}},{&quot;breakpoint&quot;:1200,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesMargin&quot;:&quot;0&quot;}},{&quot;breakpoint&quot;:1500,&quot;settings&quot;:{&quot;slidesToShow&quot;:1,&quot;slidesMargin&quot;:&quot;0&quot;}}]">
-            <!-- <div class="slide-wrap">
-                <img src="assets/images/hero/hero-negro.png" alt="image">
-                <div class="slide-info">
-                    <div class="container">
-                        <div class="slide-inner">
-                            <h5><span>Hot Deal Product</span></h5>
-                            <h1 class="prisma-texto">Prisma®</h1>
-                            <h2>Joyeria <span class="prisma-texto">&</span> Diseño</h2>
-                            <a href="https://joyeriaprisma.com/">Visítanos </a>
+
+             @foreach ($images as $image)
+                <div class="slide-wrap">
+                    <img src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
+                    <div class="slide-info">
+                        <div class="container">
+                            <div class="slide-inner">
+                                <!-- <h5 style="color: white;">Trending</h5>
+                                <h1 style="color: rgb(222, 224, 51);"><span>Prisma</span>®</h1>
+                                <h2 style="color: white;">Stock <span>Limitado</span></h2>
+                                <a href="https://joyeriaprisma.com/">Comprar</a> -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="slide-wrap">
-                <img src="assets/images/hero/hero-morado.png" alt="image">
-                <div class="slide-info">
-                    <div class="container">
-                        <div class="slide-inner">
-                            <h5 style="color: white;">Trending</h5>
-                            <h1 style="color: rgb(222, 224, 51);"><span>Prisma</span>®</h1>
-                            <h2 style="color: white;">Stock <span>Limitado</span></h2>
-                            <a href="https://joyeriaprisma.com/">Comprar</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <div class="slide-wrap">
-                <img src="assets/images/hero/hero-nuevo1.jpg" alt="image">
-                <div class="slide-info">
-                    <div class="container">
-                        <div class="slide-inner">
-                            <!-- <h5 style="color: white;">Trending</h5>
-                            <h1 style="color: rgb(222, 224, 51);"><span>Prisma</span>®</h1>
-                            <h2 style="color: white;">Stock <span>Limitado</span></h2>
-                            <a href="https://joyeriaprisma.com/">Comprar</a> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+             @endforeach
             <div class="slide-wrap">
                 <img src="assets/images/hero/hero-nuevo2.jpg" alt="image">
                 <div class="slide-info">
@@ -59,66 +36,8 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="slide-wrap">
-                <img src="assets/images/hero/hero-negro.png" alt="image">
-                <div class="slide-info">
-                    <div class="container">
-                        <div class="slide-inner">
-                            <h5><span>Earrings Essential</span></h5>
-                            <h1>New Arrivals</h1>
-                            <h2>Get <span>25%</span> Off</h2>
-                            <a href="https://joyeriaprisma.com/">Shop now</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
         </div>
     </div>
-    <!-- <div class="section-030">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-lg-4 ">
-                    <div class="kaycee-iconbox style-03">
-                        <div class="iconbox-inner">
-                            <div class="icon">
-                                <span class="flaticon-startup"></span>
-                            </div>
-                            <div class="content">
-                                <h4 class="title">Fast Shipping.</h4>
-                                <div class="desc">With sites in 5 languages, ship to over 200 countries</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-4 ">
-                    <div class="kaycee-iconbox style-03">
-                        <div class="iconbox-inner">
-                            <div class="icon">
-                                <span class="flaticon-padlock"></span>
-                            </div>
-                            <div class="content">
-                                <h4 class="title">Safe delivery</h4>
-                                <div class="desc">Pay with the world’s most popular, secure payment.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12 col-lg-4 ">
-                    <div class="kaycee-iconbox style-03">
-                        <div class="iconbox-inner">
-                            <div class="icon">
-                                <span class="flaticon-return-1"></span>
-                            </div>
-                            <div class="content">
-                                <h4 class="title">365 Days Return</h4>
-                                <div class="desc">Round-the-clock assistance for a shopping experience.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
     <div class="section-005">
         <div class="container">
             <div class="row">
