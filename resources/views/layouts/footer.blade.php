@@ -84,12 +84,12 @@
                                 Información </h4>
                             <ul class="listitem-list">
                                 <li>
-                                    <a href="privacidad.html" target="_self">
+                                    <a href="{{ route('legal.privacy') }}" target="_self">
                                         Política de Privacidad
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="politica_venta.html" target="_self">
+                                    <a href="{{ route('legal.sale-policy') }}" target="_self">
                                         Política de Venta
                                     </a>
                                 </li>
