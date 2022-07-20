@@ -65,10 +65,10 @@
                 <hr class="my-4">
             </div>
 
-            <div class="row">
+            <div class="row" id="gallery_container">
                 @foreach ($images as $image)
             
-                    <div class="col-md-4 mb-2 px-3 banner-image">
+                    <div data-id="{{$image->id}}" class="col-md-4 mb-2 px-3 banner-image">
                         <img class="rounded img-fluid thumbnail-image-size" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                         <a href="{{ route('admin.image.delete' , ['image_id'=>$image->id]) }}">
                             <span class="erase-img" title="Eliminar imagen">&times;</span>
@@ -120,6 +120,46 @@
 @stop
 
 @section('js')
+<script src="{{asset('vendor/sortable.min.js')}}"></script>
+<script>
+    
+    const ImageGridSort = document.getElementById('gallery_container');
+    const getOrderFrom = () => {
+        const ImagesListOrdered = sortGrid.toArray().filter(el => el !=   0);
+        const orderUpdated = [];
+        // console.log(ImagesListOrdered);
+
+        ImagesListOrdered.forEach((id, index) => {
+                index += 1;
+                orderUpdated.push({index, id});
+        });
+
+        // console.log(orderUpdated)
+        reorderImageByajax(orderUpdated);
+    }
+    const sortGrid = Sortable.create(ImageGridSort, {
+        animation: 100,
+        filter: '.filtered',
+        onEnd: getOrderFrom
+    })
+
+    function reorderImageByajax(data){
+        fetch("{{route('image.order')}}", {
+            method: 'POST',
+            mode: 'cors', 
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': "{{ csrf_token() }}"
+            },
+            body: JSON.stringify({"data":data})
+        })
+        .then(response => response.json())
+        .then(response => console.log(response))
+        .catch(error => console.log(error));
+    }
+</script>
     <script> 
 
     // Autoclose Alert

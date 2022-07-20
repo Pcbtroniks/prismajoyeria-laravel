@@ -51,4 +51,21 @@ class ImageController extends Controller
         }
         return redirect()->back()->withErrors(['message' => 'No se pudo eliminar la Imagen']);
     }
+
+    public function sortImages(){
+
+        $data = request('data');
+        // return $data;
+        $images = Image::orderBy('sort_order', 'ASC')->get();
+        $i = 0;
+        foreach($images as $image)
+        {   
+            Image::where('id', '=', $data[$i]['id'])->update(array('sort_order' => $data[$i]['index']));
+            $i++;
+        }
+        $i=null;
+        $newOrder = Image::orderBy('sort_order', 'ASC')->get();
+
+        return response(json_encode($newOrder),201);
+    }
 }

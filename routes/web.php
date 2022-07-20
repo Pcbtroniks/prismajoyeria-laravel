@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Front\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,3 +42,5 @@ Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index']
 Route::post('/save-image', [App\Http\Controllers\Admin\ImageController::class, 'save'])->name('admin.image.save');
 
 Route::get('/delete-image/{image_id}', [App\Http\Controllers\Admin\ImageController::class, 'delete'])->name('admin.image.delete');
+
+Route::post('/order-images', [ImageController::class, 'sortImages'])->name('image.order');

@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $images = Image::get(['id','image_src', 'image_alt']);
+        $images = Image::orderBy('sort_order', 'ASC')->get(['id','image_src', 'image_alt']);
         return view('admin.home', compact('images'));
     }
 }

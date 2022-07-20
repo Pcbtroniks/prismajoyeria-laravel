@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
     public function index(){
-        $images = Image::get(['image_src', 'image_alt']);
+        $images = Image::orderBy('sort_order', 'ASC')->get(['id','image_src', 'image_alt']);
         $instagramPosts = Instagram::getPosts();
         $instagramData = collect(json_decode($instagramPosts))['data'];
         $instagramPosts = (isset($instagramData) && count($instagramData) > 1) ? $instagramData  : null;
