@@ -232,4 +232,5 @@ return [
 
     ],
 
+    'instagram_api_key'=> env('INSTAGRAM_API_KEY'),
 ];

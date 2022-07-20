@@ -177,6 +177,6 @@
 <script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/mobilemenu.js"></script>
 <script src="assets/js/functions.js"></script>
-<script src="assets/js/instagram.js"></script>
+{{-- <script src="assets/js/instagram.js"></script> --}}
 </body>
 </html>

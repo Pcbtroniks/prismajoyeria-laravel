@@ -11,7 +11,7 @@ class ContactRequest extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = "Mail From Prisma Joyeria Web";
+    public $subject = "Mail From Prisma Joyeria Web Contact";
 
     public $data;
 

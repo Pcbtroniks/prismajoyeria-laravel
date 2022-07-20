@@ -1,7 +1,7 @@
 "use strict";
 
 const responsiveOptions =[{"breakpoint":480,"settings":{"slidesToShow":2,"slidesMargin":"10"}},{"breakpoint":768,"settings":{"slidesToShow":3,"slidesMargin":"10"}},{"breakpoint":992,"settings":{"slidesToShow":4,"slidesMargin":"15"}},{"breakpoint":1200,"settings":{"slidesToShow":4,"slidesMargin":"15"}},{"breakpoint":1500,"settings":{"slidesToShow":4,"slidesMargin":"15"}}]
-const options = {"arrows":true,"slidesMargin":15,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1, "responive": responsiveOptions};
+const options = {"arrows":false,"slidesMargin":15,"dots":true,"infinite":false,"speed":300,"slidesToShow":4,"rows":1, "responive": responsiveOptions};
 const PostFields = ['media_url','caption','permalink'];
 
 /* Javascript Implementation */
@@ -54,7 +54,7 @@ const getInstaMedia = async (URI_ = null) => {
         // console.log(data);
 
         /* Php Implementation */
-        const responsePHP = await fetch('/instagram.php');
+        const responsePHP = await fetch('/insta-api');
         const dataPHP = await responsePHP.json();
         console.log(dataPHP);
         
@@ -72,4 +72,3 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Php Implementation */
         getInstaMedia();
 })
-

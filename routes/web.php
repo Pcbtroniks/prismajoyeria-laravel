@@ -30,6 +30,8 @@ Route::post('/send-email', [HomeController::class, 'sendContactEmail'])->name('s
 
 Route::get('/see-email', [HomeController::class, 'seeContactEmail'])->name('seecontactemail');
 
+Route::get('/insta-api', [HomeController::class, 'getInstagramData'])->name('insta-api');
+
 // Authentication middleware
 Auth::routes();
 

@@ -5,13 +5,22 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactRequest;
 use App\Models\Image;
+use App\Models\Instagram;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
     public function index(){
         $images = Image::get(['image_src', 'image_alt']);
-        return view('front.home', compact('images'));
+        $instagramPosts = Instagram::getPosts();
+        $instagramData = collect(json_decode($instagramPosts))['data'];
+        $instagramPosts = (isset($instagramData) && count($instagramData) > 1) ? $instagramData  : null;
+        return view('front.home', compact('images', 'instagramPosts'));
+    }
+
+    public function getInstagramData(){
+        $data = Instagram::getPosts();
+        return response($data);
     }
 
     public function AboutPage(){
