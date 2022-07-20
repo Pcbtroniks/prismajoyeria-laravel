@@ -50,8 +50,9 @@
                         </div>
                         <div class="col-md-8">
                             <div role="form" class="wpcf7">
-                                <form class="wpcf7-form">
 
+                                <form method="POST" action="{{ route('sendcontactemail') }}" class="wpcf7-form">
+                                    @csrf
                                     <div class="alert alert-danger text-center" style="background-color: #fc202d;border-color: #fc202d; color:white; font-size:20px;">
                                         <p>¿Quisieras ser mayorista, hacer alguna una colaboración con Prisma ®, surgio alguna duda o aclaración?</p>
 
@@ -62,7 +63,7 @@
                                         <div class="col">
                                             <p><label> Nombre  <br>
                                                 <span class="wpcf7-form-control-wrap your-name">
-                                                    <input name="your-name" value="" size="40"
+                                                    <input name="name" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                         type="text" id="nombre"></span>
                                             </label></p>
@@ -70,7 +71,7 @@
                                         <div class="col">
                                             <p><label> Telefono  <br>
                                                 <span class="wpcf7-form-control-wrap your-email">
-                                                    <input name="your-email" value="" size="40"
+                                                    <input name="phone" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                                         type="text" id="telefono"></span>
                                             </label></p>
@@ -81,7 +82,7 @@
                                         <div class="col">
                                             <p><label> Ciudad  <br>
                                                 <span class="wpcf7-form-control-wrap your-name">
-                                                    <input name="your-name" value="" size="40"
+                                                    <input name="city" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                         type="text" id="ciudad"></span>
                                             </label></p>
@@ -89,7 +90,7 @@
                                         <div class="col">
                                             <p><label> Email  <br>
                                                 <span class="wpcf7-form-control-wrap your-email">
-                                                    <input name="your-email" value="" size="40"
+                                                    <input name="email" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                                         type="email" id="email"></span>
                                             </label></p>
@@ -99,7 +100,7 @@
                                         <div class="col">
                                             <p><label> Presupuesto  <br>
                                                 <span class="wpcf7-form-control-wrap your-name">
-                                                    <input name="your-name" value="" size="40"
+                                                    <input name="budget" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
                                                         type="text" id="presupuesto"></span>
                                             </label></p>
@@ -107,7 +108,7 @@
                                         <div class="col">
                                             <p><label> Materiales  <br>
                                                 <span class="wpcf7-form-control-wrap your-email">
-                                                    <input name="your-email" value="" size="40"
+                                                    <input name="materials" value="" size="40"
                                                         class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
                                                         type="text" id="materiales"></span>
                                             </label></p>
@@ -116,11 +117,11 @@
                                     
                                     <p><label> Tu Mensaje  <br>
                                         <span class="wpcf7-form-control-wrap your-message">
-                                            <textarea name="your-message"
+                                            <textarea name="message"
                                                       cols="40" rows="10"
                                                       class="wpcf7-form-control wpcf7-textarea" id="mensaje"></textarea></span>
                                     </label></p>
-                                    <p><input value="¡QUIERO FORMAR PARTE DE PRISMA JOYERÍA!" class="wpcf7-form-control wpcf7-submit" type="button" id="enviar"></p>
+                                    <p><input type="submit" value="¡QUIERO FORMAR PARTE DE PRISMA JOYERÍA!" class="wpcf7-form-control wpcf7-submit" id="enviar"></p>
                                 </form>
                             </div>
                         </div>

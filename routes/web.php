@@ -26,6 +26,10 @@ Route::get('/privacy', [HomeController::class, 'PrivacyPage'])->name('legal.priv
 
 Route::get('/sale-policy', [HomeController::class, 'SalePolicyPage'])->name('legal.sale-policy');
 
+Route::post('/send-email', [HomeController::class, 'sendContactEmail'])->name('sendcontactemail');
+
+Route::get('/see-email', [HomeController::class, 'seeContactEmail'])->name('seecontactemail');
+
 // Authentication middleware
 Auth::routes();
 
