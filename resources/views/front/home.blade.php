@@ -10,7 +10,7 @@
 
              @foreach ($images as $image)
                 <div class="slide-wrap">
-                    <img src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
+                    <img class="hero-image-size" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                     <div class="slide-info">
                         <div class="container">
                             <div class="slide-inner">
@@ -602,3 +602,7 @@
 </div>
 </div>
 @endsection
+
+@section('css')
+    
+@stop

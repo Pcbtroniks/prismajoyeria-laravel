@@ -69,7 +69,7 @@
                 @foreach ($images as $image)
             
                     <div class="col-md-4 mb-2 px-3 banner-image">
-                        <img class="rounded img-fluid" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
+                        <img class="rounded img-fluid thumbnail-image-size" src="/storage/{{ $image->image_src }}" alt="{{ $image->image_alt }}">
                         <a href="{{ route('admin.image.delete' , ['image_id'=>$image->id]) }}">
                             <span class="erase-img" title="Eliminar imagen">&times;</span>
                         </a>
@@ -83,6 +83,12 @@
 
 @section('css')
     <style>
+
+        .thumbnail-image-size {
+            height: 133px;
+            width: 100%;
+            object-fit: cover;
+        }
         .erase-img {
             opacity: 0;
             transition: opacity .5s ease-in-out;

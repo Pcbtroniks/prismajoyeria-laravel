@@ -15233,3 +15233,12 @@ body .kaycee-mapper .text__area {
 	width: 100%;
 	height: 100%;
 }
+
+
+@media only screen and (min-width: 768px) {
+	.hero-image-size {
+		max-height: 100vh;
+		object-fit: cover;
+		width: 100%;
+	}
+}
