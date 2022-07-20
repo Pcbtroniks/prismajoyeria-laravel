@@ -18,12 +18,16 @@
                                 <h1 style="color: rgb(222, 224, 51);"><span>Prisma</span>®</h1>
                                 <h2 style="color: white;">Stock <span>Limitado</span></h2>
                                 <a href="https://joyeriaprisma.com/">Comprar</a> -->
+                                @if($loop->last)
+                                    <a href="https://joyeriaprisma.com/" style="background-color: #97C046;border-color: #97C046;">Shop now</a>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
              @endforeach
-            <div class="slide-wrap">
+
+            {{--Shop now <div class="slide-wrap">
                 <img src="assets/images/hero/hero-nuevo2.jpg" alt="image">
                 <div class="slide-info">
                     <div class="container">
@@ -35,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="section-005">

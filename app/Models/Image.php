@@ -27,7 +27,7 @@ class Image extends Model
     }
 
     public static function erase($file){
-        return Storage::delete('public/'. $file);
+        return Storage::delete($file);
     }
 
 }
